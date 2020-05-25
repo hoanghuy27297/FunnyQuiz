@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		F5DC7444247BBA6900190F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7443247BBA6900190F8A /* AppDelegate.swift */; };
 		F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7445247BBA6900190F8A /* SceneDelegate.swift */; };
-		F5DC7448247BBA6900190F8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7447247BBA6900190F8A /* ViewController.swift */; };
 		F5DC744B247BBA6900190F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7449247BBA6900190F8A /* Main.storyboard */; };
 		F5DC744E247BBA6900190F8A /* FunnyQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5DC744C247BBA6900190F8A /* FunnyQuiz.xcdatamodeld */; };
 		F5DC7450247BBA6B00190F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5DC744F247BBA6B00190F8A /* Assets.xcassets */; };
 		F5DC7453247BBA6B00190F8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7451247BBA6B00190F8A /* LaunchScreen.storyboard */; };
 		F5DC745E247BBA6C00190F8A /* FunnyQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC745D247BBA6C00190F8A /* FunnyQuizTests.swift */; };
 		F5DC7469247BBA6C00190F8A /* FunnyQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7468247BBA6C00190F8A /* FunnyQuizUITests.swift */; };
+		F5DC7477247BF64800190F8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7476247BF64800190F8A /* LoginViewController.swift */; };
+		F5DC7479247BFB4300190F8A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7478247BFB4300190F8A /* SignupViewController.swift */; };
+		F5DC747B247C0ABB00190F8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC747A247C0ABB00190F8A /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		F5DC7440247BBA6900190F8A /* FunnyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DC7443247BBA6900190F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DC7445247BBA6900190F8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F5DC7447247BBA6900190F8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5DC744A247BBA6900190F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5DC744D247BBA6900190F8A /* FunnyQuiz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FunnyQuiz.xcdatamodel; sourceTree = "<group>"; };
 		F5DC744F247BBA6B00190F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		F5DC7464247BBA6C00190F8A /* FunnyQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FunnyQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DC7468247BBA6C00190F8A /* FunnyQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyQuizUITests.swift; sourceTree = "<group>"; };
 		F5DC746A247BBA6C00190F8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5DC7476247BF64800190F8A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F5DC7478247BFB4300190F8A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		F5DC747A247C0ABB00190F8A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 			children = (
 				F5DC7443247BBA6900190F8A /* AppDelegate.swift */,
 				F5DC7445247BBA6900190F8A /* SceneDelegate.swift */,
-				F5DC7447247BBA6900190F8A /* ViewController.swift */,
+				F5DC7476247BF64800190F8A /* LoginViewController.swift */,
+				F5DC7478247BFB4300190F8A /* SignupViewController.swift */,
+				F5DC747A247C0ABB00190F8A /* HomeViewController.swift */,
 				F5DC7449247BBA6900190F8A /* Main.storyboard */,
 				F5DC744F247BBA6B00190F8A /* Assets.xcassets */,
 				F5DC7451247BBA6B00190F8A /* LaunchScreen.storyboard */,
@@ -262,10 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5DC7448247BBA6900190F8A /* ViewController.swift in Sources */,
 				F5DC7444247BBA6900190F8A /* AppDelegate.swift in Sources */,
 				F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */,
+				F5DC7479247BFB4300190F8A /* SignupViewController.swift in Sources */,
+				F5DC7477247BF64800190F8A /* LoginViewController.swift in Sources */,
 				F5DC744E247BBA6900190F8A /* FunnyQuiz.xcdatamodeld in Sources */,
+				F5DC747B247C0ABB00190F8A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
