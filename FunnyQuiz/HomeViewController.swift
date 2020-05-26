@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
         mathViewButton.dropShadow()
         geographyViewButton.dropShadow()
         literatureViewButton.dropShadow()
-        print("USER ", loggedInUser!.email!)
     }
 
     @IBAction func logoutBtn(_ sender: Any) {
