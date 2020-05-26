@@ -38,6 +38,9 @@ class HomeViewController: UIViewController {
         if segue.identifier == "updatePasswordSegue" {
             let updatePasswordVC: UpdatePasswordViewController = segue.destination as! UpdatePasswordViewController
             updatePasswordVC.loggedInUser = loggedInUser
+        } else if segue.identifier == "MathSegue" {
+            let vc: AnswerQuestionViewController = segue.destination as! AnswerQuestionViewController
+            vc.loggedInUser = loggedInUser
         }
     }
 }

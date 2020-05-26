@@ -285,7 +285,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="aa5-Ck-Tjp" kind="presentation" id="jzR-yw-PKq"/>
+                                    <segue destination="aa5-Ck-Tjp" kind="presentation" identifier="MathSegue" id="jzR-yw-PKq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2E-Gm-Rug">
@@ -593,6 +593,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitBtn:" destination="aa5-Ck-Tjp" eventType="touchUpInside" id="LPI-Ww-3vr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
