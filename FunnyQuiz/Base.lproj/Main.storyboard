@@ -257,7 +257,7 @@
                                     <navigationItem title="Home" id="ULr-Mz-qZh">
                                         <barButtonItem key="rightBarButtonItem" image="person.circle.fill" catalog="system" landscapeImage="person.circle.fill" largeContentSizeImage="person.circle.fill" style="plain" id="vBy-fx-btd">
                                             <connections>
-                                                <segue destination="who-08-Ba8" kind="presentation" id="orX-ha-IFN"/>
+                                                <segue destination="who-08-Ba8" kind="presentation" identifier="updatePasswordSegue" id="orX-ha-IFN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -366,7 +366,7 @@
         <!--Title-->
         <scene sceneID="vfJ-IS-GOs">
             <objects>
-                <viewController id="who-08-Ba8" sceneMemberID="viewController">
+                <viewController id="who-08-Ba8" customClass="UpdatePasswordViewController" customModule="FunnyQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QD7-Jv-dGP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,7 +375,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Update Password" id="JCL-Zg-E7j">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Y5t-lS-B00"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Y5t-lS-B00">
+                                            <connections>
+                                                <action selector="cancelBtn:" destination="who-08-Ba8" id="TgA-dW-95h"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -385,7 +389,7 @@
                                     <constraint firstAttribute="width" constant="294" id="4hY-WW-Hw8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm new password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaX-wp-LgE">
                                 <rect key="frame" x="60" y="130" width="294" height="34"/>
@@ -393,7 +397,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="294" id="cMl-I9-ja6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3V-1Q-EEk">
                                 <rect key="frame" x="107" y="204" width="200" height="36"/>
@@ -410,13 +414,24 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitBtn:" destination="who-08-Ba8" eventType="touchUpInside" id="Zbu-wJ-thZ"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXN-tc-64G">
+                                <rect key="frame" x="207" y="172" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.051654848099999998" blue="0.045474381309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="z3V-1Q-EEk" firstAttribute="top" secondItem="yaX-wp-LgE" secondAttribute="bottom" constant="40" id="0hA-PG-qYn"/>
                             <constraint firstItem="Cd6-2h-F2D" firstAttribute="leading" secondItem="Vn8-wT-ypR" secondAttribute="leading" id="4xt-Ao-8K4"/>
+                            <constraint firstItem="MXN-tc-64G" firstAttribute="centerX" secondItem="QD7-Jv-dGP" secondAttribute="centerX" id="8o0-xf-ww1"/>
                             <constraint firstItem="yaX-wp-LgE" firstAttribute="top" secondItem="wMy-Ac-Ay8" secondAttribute="bottom" constant="20" id="N5m-83-nLP"/>
+                            <constraint firstItem="MXN-tc-64G" firstAttribute="top" secondItem="yaX-wp-LgE" secondAttribute="bottom" constant="8" id="Rsr-7R-Cs1"/>
                             <constraint firstItem="z3V-1Q-EEk" firstAttribute="centerX" secondItem="QD7-Jv-dGP" secondAttribute="centerX" id="VEx-Vt-4Dt"/>
                             <constraint firstItem="Cd6-2h-F2D" firstAttribute="top" secondItem="Vn8-wT-ypR" secondAttribute="top" id="cyU-GK-ccI"/>
                             <constraint firstItem="Cd6-2h-F2D" firstAttribute="trailing" secondItem="Vn8-wT-ypR" secondAttribute="trailing" id="iXR-fA-e7y"/>
@@ -427,6 +442,11 @@
                         <viewLayoutGuide key="safeArea" id="Vn8-wT-ypR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="6A9-5d-omM"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="yaX-wp-LgE" id="BUA-uJ-XFi"/>
+                        <outlet property="errorMessage" destination="MXN-tc-64G" id="Muf-O7-nwp"/>
+                        <outlet property="password" destination="wMy-Ac-Ay8" id="EBD-MY-LnK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20z-Ce-juR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

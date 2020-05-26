@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F508A0A2247D164E00CA29DF /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */; };
 		F5DC7444247BBA6900190F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7443247BBA6900190F8A /* AppDelegate.swift */; };
 		F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7445247BBA6900190F8A /* SceneDelegate.swift */; };
 		F5DC744B247BBA6900190F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7449247BBA6900190F8A /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		F5DC7440247BBA6900190F8A /* FunnyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DC7443247BBA6900190F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DC7445247BBA6900190F8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				F5DC7476247BF64800190F8A /* LoginViewController.swift */,
 				F5DC7478247BFB4300190F8A /* SignupViewController.swift */,
 				F5DC747A247C0ABB00190F8A /* HomeViewController.swift */,
+				F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */,
 				F5DC7449247BBA6900190F8A /* Main.storyboard */,
 				F5DC744F247BBA6B00190F8A /* Assets.xcassets */,
 				F5DC7451247BBA6B00190F8A /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 				F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */,
 				F5DC7479247BFB4300190F8A /* SignupViewController.swift in Sources */,
 				F5DC7477247BF64800190F8A /* LoginViewController.swift in Sources */,
+				F508A0A2247D164E00CA29DF /* UpdatePasswordViewController.swift in Sources */,
 				F5DC744E247BBA6900190F8A /* FunnyQuiz.xcdatamodeld in Sources */,
 				F5DC747B247C0ABB00190F8A /* HomeViewController.swift in Sources */,
 			);

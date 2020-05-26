@@ -48,13 +48,16 @@ class LoginViewController: UIViewController, NSFetchedResultsControllerDelegate 
 
             do {
                 let result = try managedObjectContext.fetch(request)
-
+                
                 if result.count > 0 {
                     for data in result as! [NSManagedObject] {
                         let passwordFromData = data.value(forKey: "password") as! String
                         if passwordInput! == passwordFromData {
                             let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                            homeVC.loggedInUser = data as? User
                             self.navigationController?.pushViewController(homeVC, animated: true)
+                        } else {
+                            errorMessage.text = "Password is incorrect. Please try again!"
                         }
                     }
                 } else {

@@ -24,7 +24,7 @@ class SignupViewController: UIViewController, NSFetchedResultsControllerDelegate
         // Do any additional setup after loading the view.
         errorMessage.alpha = 0
     }
-    
+
     @IBAction func registerBtn(_ sender: Any) {
         errorMessage.alpha = 0
         let ent = NSEntityDescription.entity(forEntityName: "User", in: managedObjectContext)
