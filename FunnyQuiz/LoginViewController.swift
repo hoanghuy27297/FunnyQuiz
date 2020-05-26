@@ -39,6 +39,7 @@ class LoginViewController: UIViewController, NSFetchedResultsControllerDelegate 
     }
     
     @IBAction func loginBtn(_ sender: Any) {
+        errorMessage.text = ""
         let emailInput = email.text
         let passwordInput = password.text
         if (emailInput != "" && passwordInput != "") {
