@@ -39,6 +39,7 @@ class SignupViewController: UIViewController, NSFetchedResultsControllerDelegate
                 try managedObjectContext.save()
                 let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 self.navigationController?.pushViewController(homeVC, animated: true)
+                dismiss()
                 print("Registered success!")
             } catch _ {
                 errorMessage.alpha = 1
