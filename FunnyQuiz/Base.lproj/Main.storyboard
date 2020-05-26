@@ -256,7 +256,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Home" id="ULr-Mz-qZh">
-                                        <barButtonItem key="rightBarButtonItem" image="person.circle.fill" catalog="system" landscapeImage="person.circle.fill" largeContentSizeImage="person.circle.fill" style="plain" id="vBy-fx-btd"/>
+                                        <barButtonItem key="rightBarButtonItem" image="person.circle.fill" catalog="system" landscapeImage="person.circle.fill" largeContentSizeImage="person.circle.fill" style="plain" id="vBy-fx-btd">
+                                            <connections>
+                                                <action selector="userActionBtn:" destination="Gcq-QS-0Cy" id="vvA-bU-nVH"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

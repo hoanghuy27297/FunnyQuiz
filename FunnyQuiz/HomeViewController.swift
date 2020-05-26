@@ -14,7 +14,22 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func userActionBtn(_ sender: Any) {
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
 
+        let changePasswordAction = UIAlertAction(title: "Change password", style: .default, handler: {(action) -> Void in print("I agree")})
+        let checkPointAction = UIAlertAction(title: "Earned points", style: .default, handler: {(action) -> Void in print("I agree")})
+        let logoutAction = UIAlertAction(title: "Log out", style: .destructive, handler: {(action) -> Void in print("I disagree")})
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) -> Void in print("Cancel button clicked")})
+
+        alertController.addAction(changePasswordAction)
+        alertController.addAction(checkPointAction)
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
