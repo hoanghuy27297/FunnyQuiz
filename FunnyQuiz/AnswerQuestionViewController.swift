@@ -23,11 +23,11 @@ class AnswerQuestionViewController: UIViewController, NSFetchedResultsController
     @IBOutlet weak var fourthAnswer: UITextField!
     @IBOutlet weak var fifthAnswer: UITextField!
 
-    var firstCorrectAnswer: String
-    var secondCorrectAnswer: String
-    var thirdCorrectAnswer: String
-    var fourthCorrectAnswer: String
-    var fifthCorrectAnswer: String
+    var firstCorrectAnswer: String = ""
+    var secondCorrectAnswer: String = ""
+    var thirdCorrectAnswer: String = ""
+    var fourthCorrectAnswer: String = ""
+    var fifthCorrectAnswer: String = ""
 
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
