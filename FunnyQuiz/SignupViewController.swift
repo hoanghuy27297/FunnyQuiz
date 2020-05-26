@@ -17,7 +17,6 @@ class SignupViewController: UIViewController, NSFetchedResultsControllerDelegate
     @IBOutlet weak var errorMessage: UILabel!
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var frc = NSFetchedResultsController<NSFetchRequestResult>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,6 @@ class SignupViewController: UIViewController, NSFetchedResultsControllerDelegate
                 try managedObjectContext.save()
                 let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                 self.navigationController?.pushViewController(homeVC, animated: true)
-                dismiss()
                 print("Registered success!")
             } catch _ {
                 errorMessage.alpha = 1

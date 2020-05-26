@@ -12,6 +12,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var mathViewButton: UIButton!
     @IBOutlet weak var geographyViewButton: UIButton!
     @IBOutlet weak var literatureViewButton: UIButton!
+    
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,6 +23,9 @@ class HomeViewController: UIViewController {
         literatureViewButton.dropShadow()
     }
 
+    @IBAction func logoutBtn(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToLogin", sender: self)
+    }
     
     /*
     // MARK: - Navigation

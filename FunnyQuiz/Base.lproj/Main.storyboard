@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gcq-QS-0Cy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O8C-sO-sQ8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -266,6 +266,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSU-vi-VYy">
                                 <rect key="frame" x="20" y="108" width="52" height="30"/>
                                 <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logoutBtn:" destination="Gcq-QS-0Cy" eventType="touchUpInside" id="JnY-EC-JUS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-WH-6XU">
                                 <rect key="frame" x="20" y="178" width="90" height="90"/>
@@ -352,9 +355,11 @@
                         <outlet property="geographyViewButton" destination="K2E-Gm-Rug" id="7bd-Ou-7Ar"/>
                         <outlet property="literatureViewButton" destination="RAc-ut-QN3" id="aJ1-2N-l0b"/>
                         <outlet property="mathViewButton" destination="kDz-WH-6XU" id="KY5-ko-Vs7"/>
+                        <segue destination="OoO-Ba-sVP" kind="unwind" identifier="unwindSegueToLogin" unwindAction="unwindToLoginWithSegue:" id="bTm-Fp-94S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIh-pg-8Cq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="OoO-Ba-sVP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1971.0144927536232" y="132.58928571428572"/>
         </scene>

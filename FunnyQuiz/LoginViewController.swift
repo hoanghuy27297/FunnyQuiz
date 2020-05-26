@@ -68,6 +68,8 @@ class LoginViewController: UIViewController, NSFetchedResultsControllerDelegate 
         }
     }
     
+    @IBAction func unwindToLogin(segue:UIStoryboardSegue) { }
+    
     /*
     // MARK: - Navigation
 
