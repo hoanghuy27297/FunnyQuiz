@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var mathViewButton: UIButton!
     @IBOutlet weak var geographyViewButton: UIButton!
     @IBOutlet weak var literatureViewButton: UIButton!
@@ -23,6 +24,18 @@ class HomeViewController: UIViewController {
         mathViewButton.dropShadow()
         geographyViewButton.dropShadow()
         literatureViewButton.dropShadow()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Attempts")
+        request.predicate = NSPredicate(format: "ofUser.email = %@", loggedInUser?.email ?? "")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let attemptResult = try managedObjectContext.fetch(request)
+            print(attemptResult)
+        } catch _ {
+            print("Get attempt data error")
+        }
+        
     }
 
     @IBAction func logoutBtn(_ sender: Any) {
