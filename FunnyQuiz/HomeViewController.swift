@@ -41,6 +41,14 @@ class HomeViewController: UIViewController {
         } else if segue.identifier == "MathSegue" {
             let vc: AnswerQuestionViewController = segue.destination as! AnswerQuestionViewController
             vc.loggedInUser = loggedInUser
+        } else if segue.identifier == "GeographySegue" {
+            let vc: MultipleChoiceQuestionViewController = segue.destination as! MultipleChoiceQuestionViewController
+            vc.loggedInUser = loggedInUser
+            vc.quizArea = "Geography"
+        } else if segue.identifier == "LiteratureSegue" {
+            let vc: MultipleChoiceQuestionViewController = segue.destination as! MultipleChoiceQuestionViewController
+            vc.loggedInUser = loggedInUser
+            vc.quizArea = "Literature"
         }
     }
 }

@@ -40,34 +40,36 @@ class AnswerQuestionViewController: UIViewController, NSFetchedResultsController
         
         do {
             let mathResult = try managedObjectContext.fetch(mathFetchRequest)
-            for i in 1...5 {
-                let randomIndex = Int.random(in: 0...mathResult.count - 1)
-                let quiz: Math = mathResult[randomIndex] as! Math
+            if mathResult.count > 0 {
+                for i in 1...5 {
+                    let randomIndex = Int.random(in: 0...mathResult.count - 1)
+                    let quiz: Math = mathResult[randomIndex] as! Math
 
-                switch i {
-                    case 1:
-                        firstQuestion.text = quiz.question!
-                        firstCorrectAnswer = quiz.result!
-                        break
-                    case 2:
-                        secondQuestion.text = quiz.question!
-                        secondCorrectAnswer = quiz.result!
-                        break
-                    case 3:
-                        thirdQuestion.text = quiz.question!
-                        thirdCorrectAnswer = quiz.result!
-                        break
-                    case 4:
-                        fourthQuestion.text = quiz.question!
-                        fourthCorrectAnswer = quiz.result!
-                        break
-                    case 5:
-                        fifthQuestion.text = quiz.question!
-                        fifthCorrectAnswer = quiz.result!
-                        break
-                    default:
-                        print("Error")
-                        break
+                    switch i {
+                        case 1:
+                            firstQuestion.text = quiz.question!
+                            firstCorrectAnswer = quiz.result!
+                            break
+                        case 2:
+                            secondQuestion.text = quiz.question!
+                            secondCorrectAnswer = quiz.result!
+                            break
+                        case 3:
+                            thirdQuestion.text = quiz.question!
+                            thirdCorrectAnswer = quiz.result!
+                            break
+                        case 4:
+                            fourthQuestion.text = quiz.question!
+                            fourthCorrectAnswer = quiz.result!
+                            break
+                        case 5:
+                            fifthQuestion.text = quiz.question!
+                            fifthCorrectAnswer = quiz.result!
+                            break
+                        default:
+                            print("Error")
+                            break
+                    }
                 }
             }
         } catch _ {

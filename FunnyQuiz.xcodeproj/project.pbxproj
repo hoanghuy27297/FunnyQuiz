@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F508A0A2247D164E00CA29DF /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */; };
 		F566DBDC247D5814007FAC74 /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F566DBDB247D5814007FAC74 /* AnswerQuestionViewController.swift */; };
-		F566DBDE247D5825007FAC74 /* MultipleChoiceQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F566DBDD247D5824007FAC74 /* MultipleChoiceQuestionViewController.swift */; };
+		F566DBE4247E0A7E007FAC74 /* MultipleChoiceQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F566DBE3247E0A7E007FAC74 /* MultipleChoiceQuestionViewController.swift */; };
 		F5DC7444247BBA6900190F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7443247BBA6900190F8A /* AppDelegate.swift */; };
 		F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5DC7445247BBA6900190F8A /* SceneDelegate.swift */; };
 		F5DC744B247BBA6900190F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5DC7449247BBA6900190F8A /* Main.storyboard */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		F566DBDB247D5814007FAC74 /* AnswerQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerQuestionViewController.swift; sourceTree = "<group>"; };
-		F566DBDD247D5824007FAC74 /* MultipleChoiceQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionViewController.swift; sourceTree = "<group>"; };
+		F566DBE3247E0A7E007FAC74 /* MultipleChoiceQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceQuestionViewController.swift; sourceTree = "<group>"; };
 		F5DC7440247BBA6900190F8A /* FunnyQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FunnyQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5DC7443247BBA6900190F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5DC7445247BBA6900190F8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 				F5DC747A247C0ABB00190F8A /* HomeViewController.swift */,
 				F508A0A1247D164E00CA29DF /* UpdatePasswordViewController.swift */,
 				F566DBDB247D5814007FAC74 /* AnswerQuestionViewController.swift */,
-				F566DBDD247D5824007FAC74 /* MultipleChoiceQuestionViewController.swift */,
+				F566DBE3247E0A7E007FAC74 /* MultipleChoiceQuestionViewController.swift */,
 				F5DC7449247BBA6900190F8A /* Main.storyboard */,
 				F5DC744F247BBA6B00190F8A /* Assets.xcassets */,
 				F5DC7451247BBA6B00190F8A /* LaunchScreen.storyboard */,
@@ -281,8 +281,8 @@
 				F5DC7446247BBA6900190F8A /* SceneDelegate.swift in Sources */,
 				F5DC7479247BFB4300190F8A /* SignupViewController.swift in Sources */,
 				F5DC7477247BF64800190F8A /* LoginViewController.swift in Sources */,
-				F566DBDE247D5825007FAC74 /* MultipleChoiceQuestionViewController.swift in Sources */,
 				F566DBDC247D5814007FAC74 /* AnswerQuestionViewController.swift in Sources */,
+				F566DBE4247E0A7E007FAC74 /* MultipleChoiceQuestionViewController.swift in Sources */,
 				F508A0A2247D164E00CA29DF /* UpdatePasswordViewController.swift in Sources */,
 				F5DC744E247BBA6900190F8A /* FunnyQuiz.xcdatamodeld in Sources */,
 				F5DC747B247C0ABB00190F8A /* HomeViewController.swift in Sources */,

@@ -302,6 +302,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Sym-Fm-6Fa" kind="presentation" identifier="GeographySegue" id="Yfi-Xw-y09"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-ut-QN3">
                                 <rect key="frame" x="304" y="178" width="90" height="90"/>
@@ -317,6 +320,9 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Sym-Fm-6Fa" kind="presentation" identifier="LiteratureSegue" id="6La-Wl-kHV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your earned points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-Zm-cAs">
                                 <rect key="frame" x="20" y="288" width="149" height="21"/>
@@ -466,7 +472,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSZ-Qr-d7v">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="Math Quiz" id="9sX-uB-4nH">
+                                    <navigationItem title="Answering Quiz" id="9sX-uB-4nH">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="aWV-pV-sqa">
                                             <connections>
                                                 <action selector="cancelBtn:" destination="aa5-Ck-Tjp" id="z9f-b7-3H2"/>
@@ -653,25 +659,167 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jnm-5o-mw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969.5652173913045" y="825.66964285714278"/>
+            <point key="canvasLocation" x="1971" y="868"/>
         </scene>
         <!--Multiple Choice Question View Controller-->
         <scene sceneID="rN0-1e-dgS">
             <objects>
                 <viewController id="Sym-Fm-6Fa" customClass="MultipleChoiceQuestionViewController" customModule="FunnyQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JC1-LJ-l7m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPc-ni-Ur5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Multiple Choice Quiz" id="kTD-H5-cwE">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="4An-i5-DDm">
+                                            <connections>
+                                                <action selector="cancelBtn:" destination="Sym-Fm-6Fa" id="f6B-UT-7MT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ql0-Tu-cBK">
+                                <rect key="frame" x="20" y="76" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvl-mb-02Z">
+                                <rect key="frame" x="20" y="116.5" width="180" height="29"/>
+                                <color key="backgroundColor" red="0.052782913809999998" green="0.652919798" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="DIh-zj-ioO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Option A">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseAns:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="pBi-NI-kIL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w31-bj-gWm">
+                                <rect key="frame" x="214" y="116.5" width="180" height="29"/>
+                                <color key="backgroundColor" red="0.052782913809999998" green="0.652919798" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="SI7-2p-Khc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Option B">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseAns:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="u3k-BG-ZM6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ct-s6-GAS">
+                                <rect key="frame" x="20" y="165.5" width="180" height="29"/>
+                                <color key="backgroundColor" red="0.052782913809999998" green="0.652919798" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="V1S-v0-NKT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Option C">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseAns:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="gbo-9e-PWC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xk-Nx-SEG">
+                                <rect key="frame" x="214" y="165.5" width="180" height="29"/>
+                                <color key="backgroundColor" red="0.052782913809999998" green="0.652919798" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="xku-Ie-jNH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Option D">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseAns:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="Qbc-Lh-emK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr5-N6-zag">
+                                <rect key="frame" x="20" y="234.5" width="122" height="30"/>
+                                <state key="normal" title="Previous question"/>
+                                <connections>
+                                    <action selector="prevBtn:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="dL0-L7-pnc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWv-tB-B88">
+                                <rect key="frame" x="299" y="234.5" width="95" height="30"/>
+                                <state key="normal" title="Next question"/>
+                                <connections>
+                                    <action selector="nextBtn:" destination="Sym-Fm-6Fa" eventType="touchUpInside" id="pNV-1M-bq2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="VPc-ni-Ur5" firstAttribute="trailing" secondItem="2TS-iG-WoM" secondAttribute="trailing" id="0hY-7B-UpR"/>
+                            <constraint firstItem="3Xk-Nx-SEG" firstAttribute="top" secondItem="w31-bj-gWm" secondAttribute="bottom" constant="20" id="29n-dq-zJc"/>
+                            <constraint firstItem="Tr5-N6-zag" firstAttribute="top" secondItem="5ct-s6-GAS" secondAttribute="bottom" constant="40" id="892-Kd-77j"/>
+                            <constraint firstItem="Tr5-N6-zag" firstAttribute="leading" secondItem="2TS-iG-WoM" secondAttribute="leading" constant="20" id="996-fa-1AT"/>
+                            <constraint firstItem="5ct-s6-GAS" firstAttribute="top" secondItem="hvl-mb-02Z" secondAttribute="bottom" constant="20" id="Ft3-TF-dn5"/>
+                            <constraint firstItem="2TS-iG-WoM" firstAttribute="trailing" secondItem="Ql0-Tu-cBK" secondAttribute="trailing" constant="20" id="PKz-xq-4er"/>
+                            <constraint firstItem="ZWv-tB-B88" firstAttribute="top" secondItem="3Xk-Nx-SEG" secondAttribute="bottom" constant="40" id="PjO-b5-DpA"/>
+                            <constraint firstItem="hvl-mb-02Z" firstAttribute="top" secondItem="Ql0-Tu-cBK" secondAttribute="bottom" constant="20" id="RhU-29-efc"/>
+                            <constraint firstItem="VPc-ni-Ur5" firstAttribute="top" secondItem="2TS-iG-WoM" secondAttribute="top" id="SnJ-9u-svt"/>
+                            <constraint firstItem="hvl-mb-02Z" firstAttribute="leading" secondItem="2TS-iG-WoM" secondAttribute="leading" constant="20" id="Suq-vW-6Qr"/>
+                            <constraint firstItem="2TS-iG-WoM" firstAttribute="trailing" secondItem="w31-bj-gWm" secondAttribute="trailing" constant="20" id="TRu-Y2-iED"/>
+                            <constraint firstItem="Ql0-Tu-cBK" firstAttribute="leading" secondItem="2TS-iG-WoM" secondAttribute="leading" constant="20" id="TmJ-d9-VSX"/>
+                            <constraint firstItem="Ql0-Tu-cBK" firstAttribute="top" secondItem="VPc-ni-Ur5" secondAttribute="bottom" constant="20" id="ap5-Fm-HTm"/>
+                            <constraint firstItem="2TS-iG-WoM" firstAttribute="trailing" secondItem="3Xk-Nx-SEG" secondAttribute="trailing" constant="20" id="b5h-Ku-R8p"/>
+                            <constraint firstItem="VPc-ni-Ur5" firstAttribute="leading" secondItem="2TS-iG-WoM" secondAttribute="leading" id="cBF-Oa-ngO"/>
+                            <constraint firstItem="2TS-iG-WoM" firstAttribute="trailing" secondItem="ZWv-tB-B88" secondAttribute="trailing" constant="20" id="jxJ-Q5-NuW"/>
+                            <constraint firstItem="w31-bj-gWm" firstAttribute="top" secondItem="Ql0-Tu-cBK" secondAttribute="bottom" constant="20" id="k3n-7H-T7O"/>
+                            <constraint firstItem="5ct-s6-GAS" firstAttribute="leading" secondItem="2TS-iG-WoM" secondAttribute="leading" constant="20" id="sTO-Gc-vYM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2TS-iG-WoM"/>
                     </view>
+                    <connections>
+                        <outlet property="nextViewButton" destination="ZWv-tB-B88" id="dXr-Hz-eKO"/>
+                        <outlet property="optionA" destination="hvl-mb-02Z" id="MoG-Vu-Brf"/>
+                        <outlet property="optionB" destination="w31-bj-gWm" id="IHC-4g-IPw"/>
+                        <outlet property="optionC" destination="5ct-s6-GAS" id="GsZ-DL-I0V"/>
+                        <outlet property="optionD" destination="3Xk-Nx-SEG" id="WP9-lP-Ox5"/>
+                        <outlet property="prevViewButton" destination="Tr5-N6-zag" id="ob6-fU-hz6"/>
+                        <outlet property="question" destination="Ql0-Tu-cBK" id="qSo-qn-Ma8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyL-SU-Jpx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2890" y="826"/>
+            <point key="canvasLocation" x="2890" y="868"/>
         </scene>
     </scenes>
     <resources>
         <image name="person.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6La-Wl-kHV"/>
+    </inferredMetricsTieBreakers>
 </document>

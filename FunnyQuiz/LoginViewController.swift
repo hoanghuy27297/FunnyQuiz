@@ -289,6 +289,13 @@ class LoginViewController: UIViewController, NSFetchedResultsControllerDelegate 
         question15.thirdOption = "The Big Apple"
         question15.fourthOption = "The Small Apple"
         question15.result = "The Big Apple"
+
+        // save to storage
+        do {
+            try managedObjectContext.save()
+        } catch _ {
+            print("Save geography data error!")
+        }
     }
     
     func addLiteratureData() {
@@ -411,6 +418,13 @@ class LoginViewController: UIViewController, NSFetchedResultsControllerDelegate 
         question15.thirdOption = "Rhode Island"
         question15.fourthOption = "New Hampshire"
         question15.result = "Connecticut"
+        
+        // save to storage
+        do {
+            try managedObjectContext.save()
+        } catch _ {
+            print("Save literature data error!")
+        }
     }
     
     /*
