@@ -215,8 +215,13 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
             
             // update total points of user
             loggedInUser?.totalPoints += earnedPoint
+            do {
+                try managedObjectContext.save()
+            } catch _ {
+                print("Save point error")
+            }
             
-            let message = "You have finished the '\(quizArea == "Literature" ? "Literature" : "Geography" )' quiz with \(correctAnsCount) correct \(incorrectAnsCount) incorrect answers. You have earned \(earnedPoint) points for this attempt. Overall you have \(String(describing: loggedInUser?.totalPoints)) points."
+            let message = "You have finished the '\(quizArea == "Literature" ? "Literature" : "Geography" )' quiz with \(correctAnsCount) correct \(incorrectAnsCount) incorrect answers. You have earned \(earnedPoint) points for this attempt. Overall you have \(loggedInUser?.totalPoints ?? 0) points."
             let alertController = UIAlertController(title: "Congratulation!", message: message, preferredStyle: .alert)
 
             let acceptAction = UIAlertAction(title: "OK", style: .default, handler: {action in self.dismiss()})

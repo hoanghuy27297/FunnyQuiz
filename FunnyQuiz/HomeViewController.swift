@@ -26,6 +26,19 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func logoutBtn(_ sender: Any) {
+        let alertController = UIAlertController(title: "Goodbye", message: "\(loggedInUser?.name ?? ""), you have overall \(loggedInUser?.totalPoints ?? 0) points", preferredStyle: .alert)
+
+        let acceptAction = UIAlertAction(title: "OK", style: .default, handler: {(action) in self.logout()})
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alertController.addAction(acceptAction)
+        alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func logout() {
         performSegue(withIdentifier: "unwindSegueToLogin", sender: self)
     }
 
