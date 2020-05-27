@@ -9,14 +9,24 @@
 import UIKit
 import CoreData
 
-class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var mathViewButton: UIButton!
     @IBOutlet weak var geographyViewButton: UIButton!
     @IBOutlet weak var literatureViewButton: UIButton!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
+    @IBOutlet weak var overallLabel: UILabel!
     
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var frc = NSFetchedResultsController<NSFetchRequestResult>()
 
     var loggedInUser: User? = nil
+    var numberOfRow = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +35,13 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         geographyViewButton.dropShadow()
         literatureViewButton.dropShadow()
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Attempts")
-        request.predicate = NSPredicate(format: "ofUser.email = %@", loggedInUser?.email ?? "")
-        request.returnsObjectsAsFaults = false
+        overallLabel.text = "Hi \(loggedInUser?.name ?? ""), you have earned \(loggedInUser?.totalPoints ?? 0) points in the following attempts"
+        
+        frc = getFetchedResultsController()
+        frc.delegate = self
         
         do {
-            let attemptResult = try managedObjectContext.fetch(request)
-            print(attemptResult)
+            try frc.performFetch()
         } catch _ {
             print("Get attempt data error")
         }
@@ -83,6 +93,34 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return (frc.sections?.count)!
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (frc.sections?[section].numberOfObjects)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        
+        let attempt = frc.object(at: indexPath as IndexPath) as! Attempts
+        cell.textLabel?.text = "\"\(attempt.area ?? "")\" area - attempt started on \(attempt.date ?? "") - points earned \(attempt.points)"
+        
+        return cell
+    }
+    
+    func getFetchedResultsController() -> NSFetchedResultsController<NSFetchRequestResult>{
+        frc = NSFetchedResultsController(fetchRequest: listFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        return frc
+    }
+
+    func listFetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Attempts")
+        let sortDescriptor = NSSortDescriptor(key: "area", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return fetchRequest
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -106,3 +144,4 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate {
         }
     }
 }
+

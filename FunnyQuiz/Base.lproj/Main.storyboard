@@ -324,19 +324,42 @@
                                     <segue destination="Sym-Fm-6Fa" kind="presentation" identifier="LiteratureSegue" id="6La-Wl-kHV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your earned points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-Zm-cAs">
-                                <rect key="frame" x="20" y="288" width="149" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your earned points:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-Zm-cAs">
+                                <rect key="frame" x="20" y="288" width="374" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-nl-XTf">
-                                <rect key="frame" x="20" y="317" width="374" height="160"/>
+                                <rect key="frame" x="20" y="315.5" width="374" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="iwV-SA-Gjk"/>
-                                    <constraint firstAttribute="height" constant="160" id="nn7-pN-Vkw"/>
+                                    <constraint firstAttribute="height" constant="100" id="nn7-pN-Vkw"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="FXv-8Z-ZVs" style="IBUITableViewCellStyleDefault" id="Smp-q0-qlg">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Smp-q0-qlg" id="98P-9M-G5P">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FXv-8Z-ZVs">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gcq-QS-0Cy" id="o0H-UF-Z7W"/>
+                                    <outlet property="delegate" destination="Gcq-QS-0Cy" id="8kM-1i-k7C"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtu-dp-t68">
                                 <rect key="frame" x="320" y="108" width="74" height="30"/>
@@ -365,6 +388,7 @@
                             <constraint firstItem="RAc-ut-QN3" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="90" id="h9O-kQ-Nv1"/>
                             <constraint firstItem="VSU-vi-VYy" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" constant="20" id="i4x-4R-AfF"/>
                             <constraint firstItem="LyX-AY-ReQ" firstAttribute="trailing" secondItem="ZPm-ko-jLu" secondAttribute="trailing" id="j7L-og-Emf"/>
+                            <constraint firstItem="ZPm-ko-jLu" firstAttribute="trailing" secondItem="5eI-Zm-cAs" secondAttribute="trailing" constant="20" id="swk-Yi-V2y"/>
                             <constraint firstItem="ZPm-ko-jLu" firstAttribute="trailing" secondItem="RAc-ut-QN3" secondAttribute="trailing" constant="20" id="xvi-jn-5WI"/>
                             <constraint firstItem="kZn-nl-XTf" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" constant="20" id="yG1-y6-PR3"/>
                         </constraints>
@@ -374,6 +398,8 @@
                         <outlet property="geographyViewButton" destination="K2E-Gm-Rug" id="7bd-Ou-7Ar"/>
                         <outlet property="literatureViewButton" destination="RAc-ut-QN3" id="aJ1-2N-l0b"/>
                         <outlet property="mathViewButton" destination="kDz-WH-6XU" id="KY5-ko-Vs7"/>
+                        <outlet property="overallLabel" destination="5eI-Zm-cAs" id="CXp-sJ-MIe"/>
+                        <outlet property="tableView" destination="kZn-nl-XTf" id="1ca-3A-euE"/>
                         <segue destination="OoO-Ba-sVP" kind="unwind" identifier="unwindSegueToLogin" unwindAction="unwindToLoginWithSegue:" id="bTm-Fp-94S"/>
                     </connections>
                 </viewController>
