@@ -108,7 +108,7 @@ class AnswerQuestionViewController: UIViewController, NSFetchedResultsController
         let message = "You have finished the 'Math' quiz with \(correctAnsCount) correct \(incorrectAnsCount) incorrect answers. You have earned \(earnedPoint) points for this attempt. Overall you have \(String(describing: loggedInUser?.totalPoints)) points."
         let alertController = UIAlertController(title: "Congratulation!", message: message, preferredStyle: .alert)
 
-        let acceptAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let acceptAction = UIAlertAction(title: "OK", style: .default, handler: {action in self.dismiss()})
 
         alertController.addAction(acceptAction)
 
