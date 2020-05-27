@@ -27,19 +27,26 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
     var geoQuizArray = [Geography]()
     var literQuizArray = [Literature]()
     var currentQuestionIndex = 0
-    var correctAns = ""
+
+    // initialize user answers array with empty answers as default
+    var ansArray = Array(repeating: "", count: 5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // prevQuestionButton is not appear from beginning
         prevViewButton.alpha = 0
+        
+        // set answer buttons initial colors
+        optionA.backgroundColor = UIColor.systemBlue
+        optionB.backgroundColor = UIColor.systemBlue
+        optionC.backgroundColor = UIColor.systemBlue
+        optionD.backgroundColor = UIColor.systemBlue
+        
         // Get random 5 question from Math data
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: quizArea)
         fetchRequest.returnsObjectsAsFaults = false
         do {
             let result = try managedObjectContext.fetch(fetchRequest)
-            print(quizArea)
-            print(result)
             if result.count > 0 {
                 for i in 1...5 {
                     let randomIndex = Int.random(in: 0...result.count - 1)
@@ -52,7 +59,6 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                             optionB.setTitle(quiz.secondOption, for: .normal)
                             optionC.setTitle(quiz.thirdOption, for: .normal)
                             optionD.setTitle(quiz.fourthOption, for: .normal)
-                            correctAns = quiz.result!
                         }
                     } else {
                         let quiz = result[randomIndex] as! Geography
@@ -63,7 +69,6 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                             optionB.setTitle(quiz.secondOption, for: .normal)
                             optionC.setTitle(quiz.thirdOption, for: .normal)
                             optionD.setTitle(quiz.fourthOption, for: .normal)
-                            correctAns = quiz.result!
                         }
                     }
                 }
@@ -75,7 +80,35 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
     
     
     @IBAction func chooseAns(_ sender: UIButton) {
-        print(sender.currentTitle)
+        ansArray[currentQuestionIndex] = sender.currentTitle!
+        // reset colors
+        switch sender.tag {
+        case 1:
+            optionA.backgroundColor = UIColor.blue
+            optionB.backgroundColor = UIColor.systemBlue
+            optionC.backgroundColor = UIColor.systemBlue
+            optionD.backgroundColor = UIColor.systemBlue
+        case 2:
+            optionA.backgroundColor = UIColor.systemBlue
+            optionB.backgroundColor = UIColor.blue
+            optionC.backgroundColor = UIColor.systemBlue
+            optionD.backgroundColor = UIColor.systemBlue
+            break
+        case 3:
+            optionA.backgroundColor = UIColor.systemBlue
+            optionB.backgroundColor = UIColor.systemBlue
+            optionC.backgroundColor = UIColor.blue
+            optionD.backgroundColor = UIColor.systemBlue
+            break
+        case 4:
+            optionA.backgroundColor = UIColor.systemBlue
+            optionB.backgroundColor = UIColor.systemBlue
+            optionC.backgroundColor = UIColor.systemBlue
+            optionD.backgroundColor = UIColor.blue
+            break
+        default:
+            break
+        }
     }
     
     
@@ -96,7 +129,34 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                 optionB.setTitle(quiz.secondOption, for: .normal)
                 optionC.setTitle(quiz.thirdOption, for: .normal)
                 optionD.setTitle(quiz.fourthOption, for: .normal)
-                correctAns = quiz.result!
+                
+                // update button colors if user has chosen the answer
+                if ansArray[currentQuestionIndex] == quiz.firstOption {
+                      optionA.backgroundColor = UIColor.blue
+                      optionB.backgroundColor = UIColor.systemBlue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.secondOption {
+                      optionA.backgroundColor = UIColor.systemBlue
+                      optionB.backgroundColor = UIColor.blue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.thirdOption {
+                     optionA.backgroundColor = UIColor.systemBlue
+                     optionB.backgroundColor = UIColor.systemBlue
+                     optionC.backgroundColor = UIColor.blue
+                     optionD.backgroundColor = UIColor.systemBlue
+                 } else if ansArray[currentQuestionIndex] == quiz.fourthOption {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.blue
+                } else {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.systemBlue
+                }
             } else {
                 let quiz = geoQuizArray[currentQuestionIndex]
                 question.text = "Question \(String(describing: currentQuestionIndex + 1)): \(quiz.question!)"
@@ -104,10 +164,66 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                 optionB.setTitle(quiz.secondOption, for: .normal)
                 optionC.setTitle(quiz.thirdOption, for: .normal)
                 optionD.setTitle(quiz.fourthOption, for: .normal)
-                correctAns = quiz.result!
+                
+                // update button colors if user has chosen the answer
+                if ansArray[currentQuestionIndex] == quiz.firstOption {
+                      optionA.backgroundColor = UIColor.blue
+                      optionB.backgroundColor = UIColor.systemBlue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.secondOption {
+                      optionA.backgroundColor = UIColor.systemBlue
+                      optionB.backgroundColor = UIColor.blue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.thirdOption {
+                     optionA.backgroundColor = UIColor.systemBlue
+                     optionB.backgroundColor = UIColor.systemBlue
+                     optionC.backgroundColor = UIColor.blue
+                     optionD.backgroundColor = UIColor.systemBlue
+                 } else if ansArray[currentQuestionIndex] == quiz.fourthOption {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.blue
+                } else {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.systemBlue
+                }
             }
         } else {
+            var correctAnsCount: Int16 = 0
+            // calc correct answers
+            for i in 0...ansArray.count - 1 {
+                if quizArea == "Literature" {
+                    if ansArray[i] == literQuizArray[i].result {
+                        correctAnsCount += 1
+                    }
+                } else {
+                    if ansArray[i] == geoQuizArray[i].result {
+                        correctAnsCount += 1
+                    }
+                }
+            }
+
+            // calc incorrect ans
+            let incorrectAnsCount: Int16 = 5 - correctAnsCount
+            // calc earned points
+            let earnedPoint: Int16 = correctAnsCount * 5 - incorrectAnsCount * 2
             
+            // update total points of user
+            loggedInUser?.totalPoints += earnedPoint
+            
+            let message = "You have finished the '\(quizArea == "Literature" ? "Literature" : "Geography" )' quiz with \(correctAnsCount) correct \(incorrectAnsCount) incorrect answers. You have earned \(earnedPoint) points for this attempt. Overall you have \(String(describing: loggedInUser?.totalPoints)) points."
+            let alertController = UIAlertController(title: "Congratulation!", message: message, preferredStyle: .alert)
+
+            let acceptAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+
+            alertController.addAction(acceptAction)
+
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -124,7 +240,34 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                 optionB.setTitle(quiz.secondOption, for: .normal)
                 optionC.setTitle(quiz.thirdOption, for: .normal)
                 optionD.setTitle(quiz.fourthOption, for: .normal)
-                correctAns = quiz.result!
+                
+                // update button colors if user has chosen the answer
+                if ansArray[currentQuestionIndex] == quiz.firstOption {
+                      optionA.backgroundColor = UIColor.blue
+                      optionB.backgroundColor = UIColor.systemBlue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.secondOption {
+                      optionA.backgroundColor = UIColor.systemBlue
+                      optionB.backgroundColor = UIColor.blue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.thirdOption {
+                     optionA.backgroundColor = UIColor.systemBlue
+                     optionB.backgroundColor = UIColor.systemBlue
+                     optionC.backgroundColor = UIColor.blue
+                     optionD.backgroundColor = UIColor.systemBlue
+                 } else if ansArray[currentQuestionIndex] == quiz.fourthOption {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.blue
+                } else {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.systemBlue
+                }
             } else {
                 let quiz = geoQuizArray[currentQuestionIndex]
                 question.text = "Question \(String(describing: currentQuestionIndex + 1)): \(quiz.question!)"
@@ -132,7 +275,34 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
                 optionB.setTitle(quiz.secondOption, for: .normal)
                 optionC.setTitle(quiz.thirdOption, for: .normal)
                 optionD.setTitle(quiz.fourthOption, for: .normal)
-                correctAns = quiz.result!
+                
+                // update button colors if user has chosen the answer
+                if ansArray[currentQuestionIndex] == quiz.firstOption {
+                      optionA.backgroundColor = UIColor.blue
+                      optionB.backgroundColor = UIColor.systemBlue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.secondOption {
+                      optionA.backgroundColor = UIColor.systemBlue
+                      optionB.backgroundColor = UIColor.blue
+                      optionC.backgroundColor = UIColor.systemBlue
+                      optionD.backgroundColor = UIColor.systemBlue
+                  } else if ansArray[currentQuestionIndex] == quiz.thirdOption {
+                     optionA.backgroundColor = UIColor.systemBlue
+                     optionB.backgroundColor = UIColor.systemBlue
+                     optionC.backgroundColor = UIColor.blue
+                     optionD.backgroundColor = UIColor.systemBlue
+                 } else if ansArray[currentQuestionIndex] == quiz.fourthOption {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.blue
+                } else {
+                    optionA.backgroundColor = UIColor.systemBlue
+                    optionB.backgroundColor = UIColor.systemBlue
+                    optionC.backgroundColor = UIColor.systemBlue
+                    optionD.backgroundColor = UIColor.systemBlue
+                }
             }
         }
 
