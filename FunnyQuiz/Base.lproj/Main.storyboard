@@ -338,6 +338,14 @@
                                     <constraint firstAttribute="height" constant="160" id="nn7-pN-Vkw"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtu-dp-t68">
+                                <rect key="frame" x="320" y="108" width="74" height="30"/>
+                                <state key="normal" title="Instruction"/>
+                                <connections>
+                                    <action selector="intructionBtn:" destination="Gcq-QS-0Cy" eventType="touchUpInside" id="tlP-0l-xyp"/>
+                                    <action selector="logoutBtn:" destination="Gcq-QS-0Cy" eventType="touchUpInside" id="hjO-1e-xJ3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -345,10 +353,12 @@
                             <constraint firstItem="ZPm-ko-jLu" firstAttribute="trailing" secondItem="kZn-nl-XTf" secondAttribute="trailing" constant="20" id="4Gz-Rb-bEk"/>
                             <constraint firstItem="LyX-AY-ReQ" firstAttribute="top" secondItem="ZPm-ko-jLu" secondAttribute="top" id="6yD-CW-yeb"/>
                             <constraint firstItem="LyX-AY-ReQ" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" id="BiU-Vp-nf7"/>
+                            <constraint firstItem="ZPm-ko-jLu" firstAttribute="trailing" secondItem="Rtu-dp-t68" secondAttribute="trailing" constant="20" id="DEb-HF-8fP"/>
                             <constraint firstItem="K2E-Gm-Rug" firstAttribute="centerX" secondItem="5Nt-iw-nSy" secondAttribute="centerX" id="Eg1-wd-3QQ"/>
                             <constraint firstItem="K2E-Gm-Rug" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="90" id="EsV-a3-mSk"/>
                             <constraint firstItem="kDz-WH-6XU" firstAttribute="top" secondItem="VSU-vi-VYy" secondAttribute="bottom" constant="40" id="Jnl-s6-Qbl"/>
                             <constraint firstItem="VSU-vi-VYy" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="20" id="MxD-5i-fv8"/>
+                            <constraint firstItem="Rtu-dp-t68" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="20" id="VLk-4x-yjH"/>
                             <constraint firstItem="kDz-WH-6XU" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" constant="20" id="cdF-P2-jKx"/>
                             <constraint firstItem="5eI-Zm-cAs" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" constant="20" id="ep1-RL-WpG"/>
                             <constraint firstItem="5eI-Zm-cAs" firstAttribute="top" secondItem="kDz-WH-6XU" secondAttribute="bottom" constant="20" id="giw-sH-VSp"/>
