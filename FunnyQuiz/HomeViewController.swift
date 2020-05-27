@@ -109,16 +109,44 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate, 
         return cell
     }
     
-    func getFetchedResultsController() -> NSFetchedResultsController<NSFetchRequestResult>{
-        frc = NSFetchedResultsController(fetchRequest: listFetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    func getFetchedResultsController(_ key: String = "area") -> NSFetchedResultsController<NSFetchRequestResult>{
+        frc = NSFetchedResultsController(fetchRequest: listFetchRequest(key), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         return frc
     }
 
-    func listFetchRequest() -> NSFetchRequest<NSFetchRequestResult>{
+    func listFetchRequest(_ key: String = "area") -> NSFetchRequest<NSFetchRequestResult>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Attempts")
-        let sortDescriptor = NSSortDescriptor(key: "area", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: key, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
+    }
+    
+    @IBAction func sortAreaBtn(_ sender: Any) {
+        frc = getFetchedResultsController()
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+            tableView.reloadData()
+        } catch _ {
+            print("Get attempt data error")
+        }
+    }
+    
+    @IBAction func sortDateBtn(_ sender: Any) {
+        frc = getFetchedResultsController("date")
+        frc.delegate = self
+        
+        do {
+            try frc.performFetch()
+            tableView.reloadData()
+        } catch _ {
+            print("Get attempt data error")
+        }
+    }
+    
+    func controllerDidChangeContent(_ content: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
     }
 
     // MARK: - Navigation

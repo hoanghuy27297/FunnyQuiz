@@ -215,6 +215,21 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
             
             // update total points of user
             loggedInUser?.totalPoints += earnedPoint
+            
+            // add attempt
+            let attempt = Attempts(context: managedObjectContext)
+            attempt.area = quizArea == "Literature" ? "Literature" : "Geography"
+            attempt.points = earnedPoint
+            
+            // add attempt time
+            let date = DateFormatter()
+            date.dateFormat = "HH:mm dd/MM/yyyy"
+            date.timeZone = TimeZone.current
+            attempt.date = date.string(from: Date())
+            
+            // add attempt to user
+            attempt.ofUser = loggedInUser
+            
             do {
                 try managedObjectContext.save()
             } catch _ {
