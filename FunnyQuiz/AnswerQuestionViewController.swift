@@ -40,9 +40,18 @@ class AnswerQuestionViewController: UIViewController, NSFetchedResultsController
         
         do {
             let mathResult = try managedObjectContext.fetch(mathFetchRequest)
+            var indexArray = [Int]()
             if mathResult.count > 0 {
                 for i in 1...5 {
-                    let randomIndex = Int.random(in: 0...mathResult.count - 1)
+                    var randomIndex = Int.random(in: 0...mathResult.count - 1)
+                    // if randomIndex is duplicate with previous random index, keep get new random index
+                    if indexArray.count > 0 {
+                        while indexArray.contains(randomIndex) {
+                            randomIndex = Int.random(in: 0...mathResult.count - 1)
+                        }
+                    }
+                    indexArray.append(randomIndex)
+
                     let quiz: Math = mathResult[randomIndex] as! Math
 
                     switch i {

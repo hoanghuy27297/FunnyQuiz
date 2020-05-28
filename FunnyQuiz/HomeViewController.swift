@@ -26,7 +26,8 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     var frc = NSFetchedResultsController<NSFetchRequestResult>()
 
     var loggedInUser: User? = nil
-    var numberOfRow = 0
+    var dismissPoint: Int16 = 0
+    var isDismissed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +117,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate, 
 
     func listFetchRequest(_ key: String = "area") -> NSFetchRequest<NSFetchRequestResult>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Attempts")
+        fetchRequest.predicate = NSPredicate(format: "ofUser.email = %@", loggedInUser?.email ?? "")
         let sortDescriptor = NSSortDescriptor(key: key, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
@@ -147,6 +149,7 @@ class HomeViewController: UIViewController, NSFetchedResultsControllerDelegate, 
     
     func controllerDidChangeContent(_ content: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
+        overallLabel.text = "Hi \(loggedInUser?.name ?? ""), you have earned \(loggedInUser?.totalPoints ?? 0) points in the following attempts"
     }
 
     // MARK: - Navigation

@@ -331,7 +331,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZn-nl-XTf">
-                                <rect key="frame" x="20" y="357.5" width="374" height="484.5"/>
+                                <rect key="frame" x="20" y="357.5" width="374" height="504.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="iwV-SA-Gjk"/>
@@ -393,7 +393,7 @@
                             <constraint firstItem="K2E-Gm-Rug" firstAttribute="centerX" secondItem="5Nt-iw-nSy" secondAttribute="centerX" id="Eg1-wd-3QQ"/>
                             <constraint firstItem="K2E-Gm-Rug" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="90" id="EsV-a3-mSk"/>
                             <constraint firstItem="kDz-WH-6XU" firstAttribute="top" secondItem="VSU-vi-VYy" secondAttribute="bottom" constant="40" id="Jnl-s6-Qbl"/>
-                            <constraint firstItem="ZPm-ko-jLu" firstAttribute="bottom" secondItem="kZn-nl-XTf" secondAttribute="bottom" constant="20" id="Mow-n5-2Rb"/>
+                            <constraint firstItem="ZPm-ko-jLu" firstAttribute="bottom" secondItem="kZn-nl-XTf" secondAttribute="bottom" id="Mow-n5-2Rb"/>
                             <constraint firstItem="VSU-vi-VYy" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="20" id="MxD-5i-fv8"/>
                             <constraint firstItem="Rtu-dp-t68" firstAttribute="top" secondItem="LyX-AY-ReQ" secondAttribute="bottom" constant="20" id="VLk-4x-yjH"/>
                             <constraint firstItem="kDz-WH-6XU" firstAttribute="leading" secondItem="ZPm-ko-jLu" secondAttribute="leading" constant="20" id="cdF-P2-jKx"/>

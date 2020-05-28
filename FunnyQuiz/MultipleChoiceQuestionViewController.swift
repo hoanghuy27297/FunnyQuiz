@@ -48,8 +48,17 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
         do {
             let result = try managedObjectContext.fetch(fetchRequest)
             if result.count > 0 {
+                var indexArray = [Int]()
                 for i in 1...5 {
-                    let randomIndex = Int.random(in: 0...result.count - 1)
+                    var randomIndex = Int.random(in: 0...result.count - 1)
+                    // if randomIndex is duplicate with previous random index, keep get new random index
+                    if indexArray.count > 0 {
+                        while indexArray.contains(randomIndex) {
+                            randomIndex = Int.random(in: 0...result.count - 1)
+                        }
+                    }
+                    indexArray.append(randomIndex)
+
                     if quizArea == "Literature" {
                         let quiz = result[randomIndex] as! Literature
                         literQuizArray.append(quiz)
@@ -252,6 +261,9 @@ class MultipleChoiceQuestionViewController: UIViewController, NSFetchedResultsCo
             currentQuestionIndex -= 1
             if currentQuestionIndex == 0 {
                 prevViewButton.alpha = 0
+            }
+            if currentQuestionIndex < 4 {
+                nextViewButton.setTitle("Next question", for: .normal)
             }
             if quizArea == "Literature" {
                 let quiz = literQuizArray[currentQuestionIndex]
